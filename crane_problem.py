@@ -19,7 +19,7 @@ def random_set_with_end_color(i):
     return a + [my_colors[-1]]
 
 def patterns_in_set(my_set):
-    return [','.join(my_set[j : j + PATTERN_SIZE]) for j in xrange(len(colors) - PATTERN_SIZE)]
+    return [','.join(my_set[j : j + PATTERN_SIZE]) for j in xrange(len(colors) - PATTERN_SIZE + 1)]
 
 def check_for_repeats(sets):
     for i in xrange(NUM_SETS - 1):
