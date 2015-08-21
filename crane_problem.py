@@ -1,9 +1,13 @@
 import random
+import json
 
 NUM_SETS = 100
 PATTERN_SIZE = 4
 reset_freq = 0.000001
 colors = ['black', 'lightblue', 'darkblue', 'lightgreen', 'darkgreen', 'purple', 'pink', 'red', 'orange', 'yellow']
+
+with open('matches.txt', 'w') as f:
+    pass
 
 num_end_colors = NUM_SETS / len(colors)
 
@@ -51,6 +55,9 @@ while True:
                 for i, set in enumerate(sets):
                     print '    Set %d: %r' % (i + 1, set)
                 print '    (That is %d successes so far; %d false hits!)' % (successes, false_hits)
+                with open('matches.txt', 'a') as f:
+                    f.write(json.dumps(sets, indent=4))
+                    f.write('\n----\n')
                 print '---'
                 sets = []
                 patterns = []
